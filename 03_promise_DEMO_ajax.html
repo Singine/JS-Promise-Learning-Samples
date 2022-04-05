@@ -13,48 +13,33 @@
 
     <script>
 
-        function rand(m, n) {
-            return Math.ceil(Math.random() * (n - m + 1)) + m - 1
-        }
-
-        // const btn = document.getElementById('id')
-
-        // btn.onclick = ()=>{
-
-        // }
-
-        const btn = document.querySelector('#btn')
-
+        const btn = document.getElementById('btn')
         btn.addEventListener('click', () => {
-
-            // setTimeout(() => {
-            //     let n = rand(1,100)
-            //     if(n<=30){
-            //         alert("棒棒！")
-            //     }else{
-            //         alert("哭哭！")
-            //     }
-            // }, 1000);
-
-
             const p = new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    let n = rand(1, 100)
-                    if (n <= 30) {
-                        resolve(n)
-                    } else {
-                        reject(n)
+                const xhr = new XMLHttpRequest()
+                xhr.open('GET', 'https://api.apiopen.top/getJoke')
+                xhr.send()
+                xhr.onreadystatechange = () => {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status >= 200 && xhr.status < 300) {
+                            // console.log(xhr);
+                            // console.log(xhr.response);
+                            resolve(xhr.response)
+                        } else {
+                            reject(xhr.status)
+                        }
                     }
-                }, 1000);
+                }
             })
 
             p.then(value => {
-                alert("棒棒！"+value)
+                console.log(value);
             }, reason => {
-                alert("哭哭！"+reason)
+                console.log(reason);
+                
             })
 
-            
+
         })
 
     </script>

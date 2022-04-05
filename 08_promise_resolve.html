@@ -1,0 +1,45 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <script>
+        let p1 = Promise.resolve('Gubao')
+        console.log(p1);
+
+        // 如果传入非Promise类型对象，返回一个成功的Promise对象
+        // 如果传入Promise类型对象，最后的结果取决于传入的对象的值和状态
+
+        // Promise <fulfilled>: 'Gubao'
+        // {
+        //     [[Prototype]]: Promisecatch: ƒ catch (),
+        //     constructor: ƒ Promise(),
+        //     finally: ƒ finally(),
+        //     then: ƒ then(),
+        //     Symbol(Symbol.toStringTag): "Promise",
+        //     [[Prototype]]: Object,
+        //     [[PromiseState]]: "fulfilled",
+        //     [[PromiseResult]]: "Gubao",
+        // }
+
+        let p2 = Promise.resolve(new Promise((resolve, reject) => {
+            // resolve('ok')
+            reject('kuku')
+        }))
+
+        p2.catch(reason => {
+            console.log(reason);
+        })
+
+        console.log(p2);
+
+    </script>
+</body>
+
+</html>
