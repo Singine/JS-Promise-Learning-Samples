@@ -1,12 +1,6 @@
 # JS-Promise-Learning-Samples
 Learning Promise day day up!
 
-# #说明
-
-
-# #目录
-
->[TOC]
 
 # 一、Promise的理解与使用
 
