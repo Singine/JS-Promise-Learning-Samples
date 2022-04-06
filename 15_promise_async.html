@@ -1,0 +1,40 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+       async function main(){
+
+        // 1. 如果返回值是一个非Promise类型的数据
+        // 结果就会是成功的Promise对象 
+
+        // 2. 如果返回值的是一个Promise类型的数据
+        // 结果和返回值一致
+
+        // return 'bobo'
+        return new Promise((resolve,reject)=>{
+            // resolve('Gubao')
+            reject('bubu')
+        })
+
+        // 3. 如果抛出异常 结果是失败 结果是异常值
+        // throw 'kuku'
+
+
+       }
+
+       let result = main()
+
+       console.log(result);
+
+    </script>
+</body>
+
+</html>
